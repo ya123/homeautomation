@@ -62,3 +62,5 @@ func (this *LedPlugger) Post(rw http.ResponseWriter, req *http.Request) {
 	b, _ := strconv.ParseFloat(brightness, 32)
 	this.Brightness = float32(b)
 }
+
+var a = "a"
