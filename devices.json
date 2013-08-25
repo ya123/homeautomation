@@ -1,0 +1,24 @@
+{
+ "ist doch egal": {
+  "On": false,
+  "Disabled": false,
+  "Name": "ist doch egal",
+  "PluggerName": "X10Plugger",
+  "Plugger": {
+   "HouseCode": "G",
+   "UnitCode": 7,
+   "Model": "tm12"
+  }
+ },
+ "steckdose": {
+  "On": false,
+  "Disabled": false,
+  "Name": "steckdose",
+  "PluggerName": "X10Plugger",
+  "Plugger": {
+   "HouseCode": "K",
+   "UnitCode": 14,
+   "Model": "am12"
+  }
+ }
+}

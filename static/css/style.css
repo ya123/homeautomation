@@ -1,0 +1,54 @@
+body {
+	
+}
+
+
+
+#menu {
+/*	 */
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+a.btn-default.disabled-btn, a.btn-default.disabled-btn:hover {
+	text-decoration: none;
+	 border-width: 0px; 
+	background-image: none;
+	background-color: white;
+}
+
+#menu li {
+	list-style: none;
+	float: left;
+	width: 100px;
+	border-right: 1px solid black;
+	margin: 0px;
+	margin-right: 20px;
+	padding: 4px;
+	display: block;
+	text-align: center;
+	background-color: gray;
+	color: white;
+}
+
+#menu li:last-child {
+	border-right-width: 0px;
+}
+
+#menu li a,
+#menu li a:link,
+#menu li a:hover,
+#menu li a:focus,
+#menu li a:visited,
+#menu li a:active {
+	font-size: 11px;
+	text-decoration: none;
+	color: white;
+}
+
+#menu li a:hover {
+	color: red;
+}
+
