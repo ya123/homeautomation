@@ -1,7 +1,7 @@
 package home_automation
 
 import (
-	"fmt"
+	//"fmt"
 	"github.com/metakeule/goh4/tag"
 	"github.com/metakeule/goh4/tag/short"
 	"net/http"
@@ -62,10 +62,20 @@ func Details(rw http.ResponseWriter, req *http.Request) {
 func Edit(rw http.ResponseWriter, req *http.Request) {
 	urlValues := req.URL.Query()
 	name := urlValues.Get("name")
-	d, ok := Devices.Get(name)
-	if !ok {
-		WriteLayout("nicht gefunden", rw)
-		return
+	var d *Device
+	var ok bool
+	if name == "" {
+		pl := NewX10Plugger()
+		d = &Device{
+			Plugger:     pl,
+			PluggerName: pl.Name(),
+		}
+	} else {
+		d, ok = Devices.Get(name)
+		if !ok {
+			WriteLayout("nicht gefunden", rw)
+			return
+		}
 	}
 	pluggerForm := d.Plugger.Form(req)
 
@@ -79,7 +89,12 @@ func Edit(rw http.ResponseWriter, req *http.Request) {
 		}
 	}
 
-	form := short.FormPost("/change?name="+name,
+	target := "/change"
+	if name != "" {
+		target += "?name=" + name
+	}
+
+	form := short.FormPost(target,
 		tag.CLASS("form-inline"),
 		tag.ATTR("role", "form"),
 		tag.DIV(tag.CLASS("form-group"),
@@ -113,24 +128,31 @@ func Edit(rw http.ResponseWriter, req *http.Request) {
 func Change(rw http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
 	name := req.URL.Query().Get("name")
-	d, ok := Devices.Get(name)
-	if !ok {
-		rw.WriteHeader(404)
-		return
+
+	if name == "" {
+		plugger := req.PostFormValue("plugger")
+		d := NewDevice(req.PostFormValue("name"), PluggerMap[plugger]())
+		d.Plugger.Post(rw, req)
+	} else {
+		d, ok := Devices.Get(name)
+		if !ok {
+			rw.WriteHeader(404)
+			return
+		}
+		changeName := req.PostFormValue("name")
+		d.Name = changeName
+		if err := Devices.Update(name); err != nil {
+			rw.Write([]byte(err.Error()))
+			return
+		}
+
+		plugger := req.PostFormValue("plugger")
+
+		//fmt.Println(plugger)
+		d.Plugger = PluggerMap[plugger]()
+
+		d.Plugger.Post(rw, req)
 	}
-	changeName := req.PostFormValue("name")
-	d.Name = changeName
-	if err := Devices.Update(name); err != nil {
-		rw.Write([]byte(err.Error()))
-		return
-	}
-
-	plugger := req.PostFormValue("plugger")
-
-	fmt.Println(plugger)
-	d.Plugger = PluggerMap[plugger]()
-
-	d.Plugger.Post(rw, req)
 
 	Devices.Save()
 	//json.MarshalIndent(Device, prefix, indent)

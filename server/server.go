@@ -3,14 +3,11 @@ package main
 import (
 	"fmt"
 	. "github.com/yannis/home_automation"
-	//	"github.com/yannis/home_automation/x10"
 	"net/http"
 	"os"
 )
 
 func main() {
-
-	//err := http.ListenAndServe("192.168.220.134:80", nil)
 	if len(os.Args) < 2 {
 		fmt.Println("Fehler: Bitte Server-Adresse angeben, z.B.\n\tlocalhost:80 oder \n\t192.168.220.134:80\n")
 		os.Exit(1)
@@ -32,7 +29,6 @@ func main() {
 	http.Handle("/js/", fileserver)
 	http.HandleFunc("/", List)
 
-	//fmt.Printf("%v\n", address)
 	fmt.Printf("started on %s\n", address)
 
 	err := http.ListenAndServe(address, nil)

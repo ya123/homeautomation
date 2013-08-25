@@ -55,6 +55,7 @@ var (
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">alle Geräte</a></li>
+            <li class="active"><a href="/edit">neues Gerät</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

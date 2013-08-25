@@ -1,13 +1,68 @@
 {
- "ist doch egal": {
+ "benny234": {
   "On": false,
   "Disabled": false,
-  "Name": "ist doch egal",
+  "Name": "benny234",
+  "PluggerName": "X10Plugger",
+  "Plugger": {
+   "HouseCode": "A",
+   "UnitCode": 1,
+   "Model": "lm12"
+  }
+ },
+ "gerade gemacht": {
+  "On": false,
+  "Disabled": false,
+  "Name": "gerade gemacht",
+  "PluggerName": "X10Plugger",
+  "Plugger": {
+   "HouseCode": "H",
+   "UnitCode": 12,
+   "Model": "am12"
+  }
+ },
+ "hu": {
+  "On": false,
+  "Disabled": false,
+  "Name": "hu",
+  "PluggerName": "X10Plugger",
+  "Plugger": {
+   "HouseCode": "A",
+   "UnitCode": 1,
+   "Model": "lm12"
+  }
+ },
+ "ist doch egalo400": {
+  "On": false,
+  "Disabled": false,
+  "Name": "ist doch egalo400",
   "PluggerName": "X10Plugger",
   "Plugger": {
    "HouseCode": "G",
    "UnitCode": 7,
    "Model": "tm12"
+  }
+ },
+ "kann machen": {
+  "On": false,
+  "Disabled": false,
+  "Name": "kann machen",
+  "PluggerName": "X10Plugger",
+  "Plugger": {
+   "HouseCode": "A",
+   "UnitCode": 1,
+   "Model": "lm12"
+  }
+ },
+ "nadja": {
+  "On": false,
+  "Disabled": false,
+  "Name": "nadja",
+  "PluggerName": "X10Plugger",
+  "Plugger": {
+   "HouseCode": "A",
+   "UnitCode": 1,
+   "Model": "lm12"
   }
  },
  "steckdose": {
@@ -18,6 +73,17 @@
   "Plugger": {
    "HouseCode": "K",
    "UnitCode": 14,
+   "Model": "am12"
+  }
+ },
+ "yannisdevice": {
+  "On": false,
+  "Disabled": false,
+  "Name": "yannisdevice",
+  "PluggerName": "X10Plugger",
+  "Plugger": {
+   "HouseCode": "I",
+   "UnitCode": 11,
    "Model": "am12"
   }
  }
