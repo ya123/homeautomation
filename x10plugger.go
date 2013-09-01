@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/metakeule/goh4/tag"
 	"github.com/metakeule/goh4/tag/short"
-	"github.com/yannis/home_automation/x10"
+	"github.com/ya123/homeautomation/x10"
 	"net/http"
 	"strconv"
 )

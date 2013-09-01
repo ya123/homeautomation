@@ -5,9 +5,9 @@
   "Name": "gerade gemacht",
   "PluggerName": "X10Plugger",
   "Plugger": {
-   "HouseCode": "H",
-   "UnitCode": 12,
-   "Model": "am12"
+   "HouseCode": "O",
+   "UnitCode": 15,
+   "Model": "lm12"
   }
  },
  "hu": {

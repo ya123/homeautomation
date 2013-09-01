@@ -2,10 +2,13 @@ package main
 
 import (
 	"fmt"
-	. "github.com/yannis/home_automation"
+	. "github.com/ya123/homeautomation"
 	"net/http"
 	"os"
+	"path"
 )
+
+var static = path.Join(os.Getenv("GOPATH"), "src", "github.com", "ya123", "homeautomation", "static", "")
 
 func main() {
 	if len(os.Args) < 2 {
@@ -22,7 +25,8 @@ func main() {
 	http.HandleFunc("/on", On)
 	http.HandleFunc("/off", Off)
 	fileserver := http.FileServer(
-		http.Dir(`D:\GO\GOPATH\src\github.com\yannis\home_automation\static\`),
+		//http.Dir(`D:\GO\GOPATH\src\github.com\yannis\home_automation\static\`),
+		http.Dir(static),
 	)
 	http.Handle("/css/", fileserver)
 	http.Handle("/bootstrap-3.0.0/", fileserver)

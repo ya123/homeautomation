@@ -6,6 +6,7 @@ import (
 	"github.com/metakeule/goh4/tag"
 	"net/http"
 	"os"
+	"path"
 	"sync"
 )
 
@@ -14,7 +15,11 @@ type deviceMap struct {
 	Devices map[string]*Device
 }
 
-var repository = `D:/GO/GOPATH/src/github.com/yannis/home_automation/devices.json`
+//var repository = `D:/GO/GOPATH/src/github.com/ya123/homeautomation/devices.json`
+
+var GOPATH = os.Getenv("GOPATH")
+
+var repository = path.Join(GOPATH, "src", "github.com", "ya123", "homeautomation", "devices.json")
 
 func Load() {
 	file, err := os.Open(repository)
