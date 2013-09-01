@@ -1,15 +1,4 @@
 {
- "benny234": {
-  "On": false,
-  "Disabled": false,
-  "Name": "benny234",
-  "PluggerName": "X10Plugger",
-  "Plugger": {
-   "HouseCode": "A",
-   "UnitCode": 1,
-   "Model": "lm12"
-  }
- },
  "gerade gemacht": {
   "On": false,
   "Disabled": false,
@@ -29,6 +18,17 @@
   "Plugger": {
    "HouseCode": "A",
    "UnitCode": 1,
+   "Model": "lm12"
+  }
+ },
+ "irgendwas": {
+  "On": false,
+  "Disabled": false,
+  "Name": "irgendwas",
+  "PluggerName": "X10Plugger",
+  "Plugger": {
+   "HouseCode": "G",
+   "UnitCode": 7,
    "Model": "lm12"
   }
  },
@@ -63,6 +63,17 @@
    "HouseCode": "A",
    "UnitCode": 1,
    "Model": "lm12"
+  }
+ },
+ "neues gerät": {
+  "On": false,
+  "Disabled": false,
+  "Name": "neues gerät",
+  "PluggerName": "X10Plugger",
+  "Plugger": {
+   "HouseCode": "E",
+   "UnitCode": 8,
+   "Model": "tm12"
   }
  },
  "steckdose": {
