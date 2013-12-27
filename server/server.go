@@ -11,6 +11,7 @@ import (
 var static = path.Join(os.Getenv("GOPATH"), "src", "github.com", "ya123", "homeautomation", "static", "")
 
 func main() {
+
 	if len(os.Args) < 2 {
 		fmt.Println("Fehler: Bitte Server-Adresse angeben, z.B.\n\tlocalhost:80 oder \n\t192.168.220.134:80\n")
 		os.Exit(1)

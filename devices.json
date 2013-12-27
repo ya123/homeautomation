@@ -1,4 +1,15 @@
 {
+ "Lampe 1": {
+  "On": false,
+  "Disabled": false,
+  "Name": "Lampe 1",
+  "PluggerName": "X10Plugger",
+  "Plugger": {
+   "HouseCode": "A",
+   "UnitCode": 2,
+   "Model": "lm12"
+  }
+ },
  "gerade gemacht": {
   "On": false,
   "Disabled": false,
@@ -18,17 +29,6 @@
   "Plugger": {
    "HouseCode": "A",
    "UnitCode": 1,
-   "Model": "lm12"
-  }
- },
- "irgendwas": {
-  "On": false,
-  "Disabled": false,
-  "Name": "irgendwas",
-  "PluggerName": "X10Plugger",
-  "Plugger": {
-   "HouseCode": "G",
-   "UnitCode": 7,
    "Model": "lm12"
   }
  },

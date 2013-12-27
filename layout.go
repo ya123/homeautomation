@@ -28,7 +28,7 @@ var (
 			),
 			content__,
 		),
-	).Compile()
+	).Compile("layout")
 
 	layout = tag.Doc(tag.HTML(`<!DOCTYPE html>
 <html>
@@ -70,9 +70,9 @@ var (
 
     </div> <!-- /container --> <script src="/js/jquery-1.10.2.js"></script>
     <script src="/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>`),
-	).Compile()
+	).Compile("huho")
 )
 
 func WriteLayout(content interface{}, rw http.ResponseWriter) {
-	layout.Replace(content__.Set(content)).WriteTo(rw)
+	layout.MustReplace(content__.Set(content)).WriteTo(rw)
 }

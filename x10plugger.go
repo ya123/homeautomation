@@ -10,6 +10,10 @@ import (
 	"strconv"
 )
 
+func init() {
+	x10.InitCM11()
+}
+
 type X10Plugger struct {
 	*x10.X10
 }

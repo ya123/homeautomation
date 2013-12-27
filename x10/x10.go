@@ -32,6 +32,11 @@ am12: appliance module, not dimmable
 tm12: tranceiver module, not dimmable. Its unitcode is 1.
 */
 
+func InitCM11() {
+	cmd("define x10if CM11 /dev/ttyUSB0")
+	//define x10if CM11 /dev/ttyUSB0
+}
+
 type X10 struct {
 	Name      string
 	Model     model
@@ -40,7 +45,18 @@ type X10 struct {
 }
 
 func (this *X10) define() string {
+	//return fmt.Sprintf("define %s TRX /dev/ttyUSB0@38400", this.Name, this.Model, this.HouseCode, this.UnitCode)
 	return fmt.Sprintf("define %s X10 %s %s %v", this.Name, this.Model, this.HouseCode, this.UnitCode)
+	//return fmt.Sprintf("define %s X10 %s %s %v", this.Name, this.Model, this.HouseCode, this.UnitCode)
+
+	// define RFXTRXUSB TRX /dev/ttyUSB0@38400
+
+	//Opening TRX device /dev/ttyUSB0
+	//2013.12.27 13:12:27 3: Setting TRX baudrate to 38400
+
+	//return fmt.Sprintf("define %s RFXX10REC x10 %s%d lampx", this.Name, this.HouseCode, this.UnitCode)
+	//return fmt.Sprintf("define %s TRX_LIGHT X10 %s%d lampx", this.Name, this.HouseCode, this.UnitCode)
+
 }
 
 func (this *X10) delete() string {
@@ -49,6 +65,9 @@ func (this *X10) delete() string {
 
 func (this *X10) Command(cm command) {
 	c := fmt.Sprintf("%s\nset %s %s\n%s", this.define(), this.Name, cm, this.delete())
+	//c := fmt.Sprintf("%s\nset %s %s\n%s", this.define(), this.Name, cm, "")
+
+	//c := fmt.Sprintf("%s\nset %s %s\n%s", "", this.Name, cm, "")
 	//c := fmt.Sprintf("%s\nset %s %s\n%s", this.define(), this.Name, cm, this.delete())
 	//c := fmt.Sprintf("set %s %s", this.Name, cm)
 	cmd(c)
@@ -74,7 +93,7 @@ var (
 */
 
 var FhemServer = "localhost:7072"
-var Debug = false
+var Debug = true
 
 func cmd(s string) {
 	if Debug {
