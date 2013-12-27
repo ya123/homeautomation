@@ -6,7 +6,7 @@
   "PluggerName": "X10Plugger",
   "Plugger": {
    "HouseCode": "A",
-   "UnitCode": 2,
+   "UnitCode": 1,
    "Model": "lm12"
   }
  },

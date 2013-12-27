@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"net"
+	"runtime"
 	//"time"
 )
 
@@ -33,8 +34,11 @@ tm12: tranceiver module, not dimmable. Its unitcode is 1.
 */
 
 func InitCM11() {
-	cmd("define x10if CM11 /dev/ttyUSB0")
-	//define x10if CM11 /dev/ttyUSB0
+	device := "/dev/ttyUSB0"
+	if runtime.GOOS == "windows" {
+		device = "com6"
+	}
+	cmd(fmt.Sprintf("define x10if CM11 %s", device))
 }
 
 type X10 struct {
@@ -45,18 +49,7 @@ type X10 struct {
 }
 
 func (this *X10) define() string {
-	//return fmt.Sprintf("define %s TRX /dev/ttyUSB0@38400", this.Name, this.Model, this.HouseCode, this.UnitCode)
 	return fmt.Sprintf("define %s X10 %s %s %v", this.Name, this.Model, this.HouseCode, this.UnitCode)
-	//return fmt.Sprintf("define %s X10 %s %s %v", this.Name, this.Model, this.HouseCode, this.UnitCode)
-
-	// define RFXTRXUSB TRX /dev/ttyUSB0@38400
-
-	//Opening TRX device /dev/ttyUSB0
-	//2013.12.27 13:12:27 3: Setting TRX baudrate to 38400
-
-	//return fmt.Sprintf("define %s RFXX10REC x10 %s%d lampx", this.Name, this.HouseCode, this.UnitCode)
-	//return fmt.Sprintf("define %s TRX_LIGHT X10 %s%d lampx", this.Name, this.HouseCode, this.UnitCode)
-
 }
 
 func (this *X10) delete() string {
