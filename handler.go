@@ -1,13 +1,17 @@
 package home_automation
 
 import (
-	//"fmt"
+	"fmt"
 	"github.com/metakeule/goh4/tag"
 	"github.com/metakeule/goh4/tag/short"
 	"net/http"
 
 //	"os"
 )
+
+func dimmerInput(value int) string {
+	return fmt.Sprintf(`<input type="text" value="%d" class="dimmer-input form-control">`, value)
+}
 
 func List(rw http.ResponseWriter, req *http.Request) {
 	tbody := tag.TBODY()
@@ -23,10 +27,16 @@ func List(rw http.ResponseWriter, req *http.Request) {
 			switch_ = short.AHref(switchUrl+"?name="+device.Name, "AUS", tag.CLASS("btn"), tag.CLASS("disabled-btn"), tag.CLASS("btn-default"))
 
 		}
+
+		var dimmer = ""
+		if device.Plugger.Dimmable() {
+			dimmer = `<div class="dimmer"></div>` + dimmerInput(0)
+		}
 		tbody.Add(
 			tag.TR(
 				tag.TD(device.Name),
-				tag.TD(device.Plugger.Model()),
+				tag.TD(tag.HTML(dimmer)),
+				//	tag.TD(device.Plugger.Model()),
 				tag.TD(
 					status_, switch_),
 				tag.TD(short.AHref("/edit?name="+device.Name, "bearbeiten", tag.CLASS("btn-primary"), tag.CLASS("btn"))),

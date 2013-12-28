@@ -52,3 +52,21 @@ a.btn-default.disabled-btn, a.btn-default.disabled-btn:hover {
 	color: red;
 }
 
+#slider {
+	width: 150px;
+}
+
+.dimmer-input {
+	width: 51px; 
+	text-align: center;
+}
+
+.dimmer {
+	width: 120px;
+	margin-right: 10px;
+	float: left;
+}
+
+.dimmer.ui-widget {
+	font-size: 13px;
+}

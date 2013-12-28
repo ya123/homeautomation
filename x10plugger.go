@@ -72,6 +72,13 @@ func (this *X10Plugger) Model() string {
 	return models[k]
 }
 
+func (this *X10Plugger) Dimmable() bool {
+	if string(this.X10.Model) == "lm12" {
+		return true
+	}
+	return false
+}
+
 var models = map[string]string{
 	"lm12": "Lamp dimmable",
 	"lm15": "Lamp not dimmable",

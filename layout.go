@@ -2,33 +2,36 @@ package home_automation
 
 import (
 	"github.com/metakeule/goh4/tag"
-	"github.com/metakeule/goh4/tag/short"
+	//"github.com/metakeule/goh4/tag/short"
 	"net/http"
 )
 
 var (
 	content__ = tag.HTML("content").Placeholder()
 
-	layout_ = tag.HTML5(
-		tag.HEAD(
-			short.CssHref("/css/style.css"),
-		),
-		tag.BODY(
-			tag.UL(
-				tag.ID("menu"),
-				tag.LI(
-					short.AHref("/", "alle Geräte"),
-				),
-				tag.LI(
-					short.AHref("/details", "Details"),
-				),
-				tag.LI(
-					short.AHref("/irgendwo", "Irgendwo"),
-				),
+	/*
+		layout_ = tag.HTML5(
+			tag.HEAD(
+				short.CssHref("/css/style.css"),
+				short.CssHref("/jquery-ui-1.10.3/css/custom-theme/jquery-ui-1.10.3.custom.css"),
 			),
-			content__,
-		),
-	).Compile("layout")
+			tag.BODY(
+				tag.UL(
+					tag.ID("menu"),
+					tag.LI(
+						short.AHref("/", "alle Geräte"),
+					),
+					tag.LI(
+						short.AHref("/details", "Details"),
+					),
+					tag.LI(
+						short.AHref("/irgendwo", "Irgendwo"),
+					),
+				),
+				content__,
+			),
+		).Compile("layout")
+	*/
 
 	layout = tag.Doc(tag.HTML(`<!DOCTYPE html>
 <html>
@@ -38,6 +41,7 @@ var (
     <!-- Bootstrap -->
     <link href="/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
      <link href="/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+     <link href="/jquery-ui-1.10.3/css/custom-theme/jquery-ui-1.10.3.custom.css" rel="stylesheet" media="screen">
      <link href="/css/style.css" rel="stylesheet" media="screen">
   </head>
   <body>
@@ -66,10 +70,23 @@ var (
       <div class="jumbotron">
 `),
 		content__,
-		tag.HTML(` </div>
+		tag.HTML(` 
 
+
+      </div>
+<select name="minbeds" id="minbeds">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+</select> 
     </div> <!-- /container --> <script src="/js/jquery-1.10.2.js"></script>
-    <script src="/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>`),
+    <script src="/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js"></script>
+    <script src="/js/homeautomation.js"></script>
+    `),
 	).Compile("huho")
 )
 

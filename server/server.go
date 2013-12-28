@@ -6,9 +6,25 @@ import (
 	"net/http"
 	"os"
 	"path"
+	"strconv"
+
+//	"time"
 )
 
 var static = path.Join(os.Getenv("GOPATH"), "src", "github.com", "ya123", "homeautomation", "static", "")
+
+func dim(rw http.ResponseWriter, req *http.Request) {
+	val := req.URL.Query().Get("value")
+
+	//time.Sleep(time.Second * 2)
+	rw.Header().Set("Content-Type", "application/json")
+	i, err := strconv.Atoi(val)
+	if err != nil {
+		rw.Write([]byte(`{"result": 0}`))
+		return
+	}
+	rw.Write([]byte(fmt.Sprintf(`{"result": %d}`, i+10)))
+}
 
 func main() {
 
@@ -25,12 +41,14 @@ func main() {
 	http.HandleFunc("/change", Change)
 	http.HandleFunc("/on", On)
 	http.HandleFunc("/off", Off)
+	http.HandleFunc("/dim", dim)
 	fileserver := http.FileServer(
 		//http.Dir(`D:\GO\GOPATH\src\github.com\yannis\home_automation\static\`),
 		http.Dir(static),
 	)
 	http.Handle("/css/", fileserver)
 	http.Handle("/bootstrap-3.0.0/", fileserver)
+	http.Handle("/jquery-ui-1.10.3/", fileserver)
 	http.Handle("/js/", fileserver)
 	http.HandleFunc("/", List)
 
