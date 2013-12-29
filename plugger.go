@@ -16,6 +16,7 @@ type Plugger interface {
 	Off()
 	Model() string
 	Dimmable() bool
+	Dim(int) bool
 	Form(req *http.Request) string
 	Post(rw http.ResponseWriter, req *http.Request)
 	MarshalJSON() ([]byte, error)

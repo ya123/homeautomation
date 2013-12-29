@@ -58,12 +58,22 @@ func (this *X10) delete() string {
 
 func (this *X10) Command(cm command) {
 	c := fmt.Sprintf("%s\nset %s %s\n%s", this.define(), this.Name, cm, this.delete())
-	//c := fmt.Sprintf("%s\nset %s %s\n%s", this.define(), this.Name, cm, "")
+	go cmd(c)
+}
 
-	//c := fmt.Sprintf("%s\nset %s %s\n%s", "", this.Name, cm, "")
-	//c := fmt.Sprintf("%s\nset %s %s\n%s", this.define(), this.Name, cm, this.delete())
-	//c := fmt.Sprintf("set %s %s", this.Name, cm)
-	cmd(c)
+func (this *X10) DimUp(percent int) {
+	this.dim(DimUp, percent)
+}
+
+func (this *X10) DimDown(percent int) {
+	this.dim(DimDown, percent)
+}
+
+func (this *X10) dim(cm command, percent int) {
+	//step := PercentToStep(percent)
+	c := fmt.Sprintf("%s\nset %s %s %d\n%s", this.define(), this.Name, cm, percent, this.delete())
+	// defin.....\n set name dimdown 3\n delete...
+	go cmd(c)
 }
 
 type command string
@@ -77,6 +87,8 @@ var (
 	OnForTimer = command("on-for-timer")
 )
 
+var fhemLock = make(chan int, 1)
+
 /*dimdown           # requires argument, see the note
   dimup             # requires argument, see the note
   off
@@ -89,6 +101,7 @@ var FhemServer = "localhost:7072"
 var Debug = true
 
 func cmd(s string) {
+	fhemLock <- 1
 	if Debug {
 		fmt.Println("connect")
 		fmt.Println(s)
@@ -107,6 +120,7 @@ func cmd(s string) {
 	if Debug {
 		fmt.Println("disconnect")
 	}
+	<-fhemLock
 }
 
 func send(cmd string, conn net.Conn) {

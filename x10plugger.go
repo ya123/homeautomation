@@ -16,6 +16,7 @@ func init() {
 
 type X10Plugger struct {
 	*x10.X10
+	DimValue int
 }
 
 func (this *X10Plugger) MarshalJSON() ([]byte, error) {
@@ -51,7 +52,7 @@ func (this *X10Plugger) UnmarshalJSON(data []byte) (err error) {
 }
 
 func NewX10Plugger() Plugger {
-	return &X10Plugger{&x10.X10{Name: "yannisdevice"}}
+	return &X10Plugger{X10: &x10.X10{Name: "yannisdevice"}, DimValue: 0}
 }
 func (this *X10Plugger) Name() string {
 	return "X10Plugger"
@@ -64,6 +65,7 @@ func (this *X10Plugger) On() {
 
 func (this *X10Plugger) Off() {
 	fmt.Printf("switching %s off\n", this.Name())
+	this.DimValue = 0
 	this.Command(x10.Off)
 }
 
@@ -77,6 +79,34 @@ func (this *X10Plugger) Dimmable() bool {
 		return true
 	}
 	return false
+}
+
+func (this *X10Plugger) Dim(target int) bool {
+	if target > 100 {
+		return false
+	}
+
+	if target < 0 {
+		return false
+	}
+
+	if target < 10 {
+		this.Off()
+		this.DimValue = 0
+		return true
+	}
+
+	if this.DimValue == target {
+		return true
+	}
+	//fmt.Printf("dimvalue: %d target: %d\n", this.DimValue, target)
+	if this.DimValue < target {
+		this.X10.DimUp(target - this.DimValue)
+	} else {
+		this.X10.DimDown(this.DimValue - target)
+	}
+	this.DimValue = target
+	return true
 }
 
 var models = map[string]string{

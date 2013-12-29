@@ -33,6 +33,28 @@ var (
 		).Compile("layout")
 	*/
 
+	/*
+	   <!-- Static navbar -->
+	       <div class="navbar navbar-default navbar-static-top">
+	         <div class="container">
+	           <div class="navbar-header">
+	             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	               <span class="icon-bar"></span>
+	               <span class="icon-bar"></span>
+	               <span class="icon-bar"></span>
+	             </button>
+	             <a class="navbar-brand" href="/">Yannis Home Automation Dingsbums</a>
+	           </div>
+	           <div class="navbar-collapse collapse">
+	             <ul class="nav navbar-nav">
+	               <li class="active"><a href="/edit">neues Gerät</a></li>
+	             </ul>
+	           </div><!--/.nav-collapse -->
+	         </div>
+	       </div>
+
+	*/
+
 	layout = tag.Doc(tag.HTML(`<!DOCTYPE html>
 <html>
   <head>
@@ -45,25 +67,6 @@ var (
      <link href="/css/style.css" rel="stylesheet" media="screen">
   </head>
   <body>
-   <!-- Static navbar -->
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Yannis Home Automation Dingsbums</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/edit">neues Gerät</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-
  <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
@@ -74,14 +77,6 @@ var (
 
 
       </div>
-<select name="minbeds" id="minbeds">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-    <option>6</option>
-</select> 
     </div> <!-- /container --> <script src="/js/jquery-1.10.2.js"></script>
     <script src="/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
     <script src="/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js"></script>

@@ -57,16 +57,196 @@ a.btn-default.disabled-btn, a.btn-default.disabled-btn:hover {
 }
 
 .dimmer-input {
-	width: 51px; 
+	width: 38px; 
 	text-align: center;
+	border-width: 0px;
+
+	background-color: #999999;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1;
+    min-width: 10px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 3px;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
 }
 
 .dimmer {
-	width: 120px;
-	margin-right: 10px;
+	margin-top: 12px;
+	width: 200px;
+	margin-right: 15px;
 	float: left;
 }
 
 .dimmer.ui-widget {
 	font-size: 13px;
+}
+
+/*
+.btn-default.switch.on {
+	background-color: red;
+}
+*/
+
+.table tbody > tr > td, .table tfoot > tr > td  {
+	 border-top-width: 0px;
+	 padding-right: 0px;
+	 padding-top: 18px;
+	 padding-bottom: 18px;
+}
+
+
+
+body, .container  .jumbotron {
+	background-color: #272727;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+
+
+.table-responsive {
+	border-width: 0px;
+}
+
+tr {
+    border-bottom-color: #505050;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.container {
+	/*width: 360px; */
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.switch {
+	width: 110px;
+}
+
+td.first {
+	/*width: 120px;*/
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+td.middle {
+	/*width: 170px;*/
+}
+
+td.first .btn {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+td.last .btn {
+	float: right;
+	color: white;
+	background-color: transparent;
+	padding: 0px;
+	padding-top: 9px;
+	padding-right: 5px;
+}
+
+label {
+	color: white;
+	font-weight: normal;
+	font-size: 15px;
+}
+
+@media only screen and ( max-device-width: 480px ) {
+	.dimmer {
+		width: 130px;
+		margin-right: 15px;
+	}
+
+
+	.container {
+		width: 360px; 
+	}
+
+	.switch {
+		width: 100px;
+	}
+
+	td.first {		
+		width: 88px;
+	}
+
+	td.middle {
+		width: 170px;
+	}
+
+	td.last {
+		width: 20px;	
+	}
+
+}
+
+@media only screen and ( max-width: 480px ) {
+	.dimmer {
+		width: 130px;
+		margin-right: 15px;
+	}
+
+
+	.container {
+		width: 360px; 
+	}
+
+	.switch {
+		width: 100px;
+	}
+
+	td.first {
+		width: 88px;
+	}
+
+	td.middle {
+		width: 170px;
+	}
+
+	td.last {
+		width: 20px;	
+	}
+}
+
+@media handheld, projection, tv {
+	.dimmer {
+		width: 130px;
+		margin-right: 15px;
+	}
+
+	.container {
+		width: 360px; 
+	}
+
+	.switch {
+		width: 100px;
+	}
+
+	td.first {
+		width: 88px;
+	}
+
+	td.middle {
+		width: 170px;
+	}
+
+	td.last {
+		width: 20px;	
+	}
 }

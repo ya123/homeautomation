@@ -1,8 +1,8 @@
 {
- "Lampe 1": {
+ "LampeA1": {
   "On": false,
   "Disabled": false,
-  "Name": "Lampe 1",
+  "Name": "LampeA1",
   "PluggerName": "X10Plugger",
   "Plugger": {
    "HouseCode": "A",
@@ -10,92 +10,37 @@
    "Model": "lm12"
   }
  },
- "gerade gemacht": {
+ "LampeB1": {
   "On": false,
   "Disabled": false,
-  "Name": "gerade gemacht",
+  "Name": "LampeB1",
   "PluggerName": "X10Plugger",
   "Plugger": {
-   "HouseCode": "O",
-   "UnitCode": 15,
-   "Model": "lm12"
-  }
- },
- "hu": {
-  "On": false,
-  "Disabled": false,
-  "Name": "hu",
-  "PluggerName": "X10Plugger",
-  "Plugger": {
-   "HouseCode": "A",
+   "HouseCode": "B",
    "UnitCode": 1,
    "Model": "lm12"
   }
  },
- "ist doch egalo400": {
+ "LampeB5": {
   "On": false,
   "Disabled": false,
-  "Name": "ist doch egalo400",
+  "Name": "LampeB5",
+  "PluggerName": "X10Plugger",
+  "Plugger": {
+   "HouseCode": "B",
+   "UnitCode": 5,
+   "Model": "lm12"
+  }
+ },
+ "TransceiverG7": {
+  "On": false,
+  "Disabled": false,
+  "Name": "TransceiverG7",
   "PluggerName": "X10Plugger",
   "Plugger": {
    "HouseCode": "G",
    "UnitCode": 7,
    "Model": "tm12"
-  }
- },
- "kann machen": {
-  "On": false,
-  "Disabled": false,
-  "Name": "kann machen",
-  "PluggerName": "X10Plugger",
-  "Plugger": {
-   "HouseCode": "A",
-   "UnitCode": 1,
-   "Model": "lm12"
-  }
- },
- "nadja": {
-  "On": false,
-  "Disabled": false,
-  "Name": "nadja",
-  "PluggerName": "X10Plugger",
-  "Plugger": {
-   "HouseCode": "A",
-   "UnitCode": 1,
-   "Model": "lm12"
-  }
- },
- "neues gerät": {
-  "On": false,
-  "Disabled": false,
-  "Name": "neues gerät",
-  "PluggerName": "X10Plugger",
-  "Plugger": {
-   "HouseCode": "E",
-   "UnitCode": 8,
-   "Model": "tm12"
-  }
- },
- "steckdose": {
-  "On": false,
-  "Disabled": false,
-  "Name": "steckdose",
-  "PluggerName": "X10Plugger",
-  "Plugger": {
-   "HouseCode": "K",
-   "UnitCode": 14,
-   "Model": "am12"
-  }
- },
- "yannisdevice": {
-  "On": false,
-  "Disabled": false,
-  "Name": "yannisdevice",
-  "PluggerName": "X10Plugger",
-  "Plugger": {
-   "HouseCode": "I",
-   "UnitCode": 11,
-   "Model": "am12"
   }
  }
 }
